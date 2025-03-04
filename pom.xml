@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>CMSMobileframework</groupId>
+  <artifactId>CMSMobileframework</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+  <name>CMSMobileframework</name>
+  <!-- FIXME change it to the project's website -->
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+  </properties>
+
+ 
+<dependencies>
+	
+	<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20210307</version>
+</dependency>
+
+<dependency>
+    <groupId>io.rest-assured</groupId>
+    <artifactId>rest-assured</artifactId>
+    <version>5.5.0</version>
+    <scope>test</scope>
+</dependency>
+	
+<!-- Other dependencies -->
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+        <version>1.7.32</version> <!-- Use the latest version -->
+    </dependency>
+
+
+
+<!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
+<dependency>
+    <groupId>com.github.javafaker</groupId>
+    <artifactId>javafaker</artifactId>
+    <version>1.0.2</version>
+</dependency>
+
+
+
+<!-- https://mvnrepository.com/artifact/io.appium/java-client -->
+<dependency>
+    <groupId>io.appium</groupId>
+    <artifactId>java-client</artifactId>
+    <version>9.4.0</version>
+</dependency>
+
+
+
+<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
+<dependency>
+    <groupId>io.qameta.allure</groupId>
+    <artifactId>allure-testng</artifactId>
+    <version>2.24.0</version>
+</dependency>
+
+
+
+<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>4.29.0</version>
+</dependency>
+
+
+<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-safari-driver -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-safari-driver</artifactId>
+    <version>4.15.0</version>
+</dependency>
+
+
+<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-chrome-driver</artifactId>
+    <version>4.29.0</version>
+</dependency>
+
+
+<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-edge-driver -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-edge-driver</artifactId>
+    <version>4.15.0</version>
+</dependency>
+
+
+<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-support -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-support</artifactId>
+    <version>4.29.0</version>
+</dependency>
+
+    
+    
+<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-remote-driver -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-remote-driver</artifactId>
+    <version>4.29.0</version>
+</dependency>
+
+
+<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+<dependency>
+    <groupId>io.github.bonigarcia</groupId>
+    <artifactId>webdrivermanager</artifactId>
+    <version>5.9.3</version>
+</dependency>
+
+
+
+<!-- https://mvnrepository.com/artifact/org.testng/reportng -->
+<dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>reportng</artifactId>
+    <version>1.2.2</version>
+</dependency>
+
+
+<dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.7.0</version>
+    <scope>test</scope>
+</dependency>
+
+
+  <dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.0.0</version>
+  </dependency>
+</dependencies>
+ 
+<!-- Create multiple profile suites for testsuites -->
+<!-- for run suites by using command line command is : "mvn test -PDashboad-advocate" -->
+<profiles>
+	
+<!-- Suites 1 for Homescreen -->
+<profile>
+<id>homescreen</id>
+<build>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>  
+		<plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-surefire-plugin</artifactId>
+		        <version>3.2.3</version>
+		        <configuration>
+		          <suiteXmlFiles>
+		            <suiteXmlFile>Member-App-Suites/Membercase-regrssion-independent-Homescreen_suite01.xml</suiteXmlFile>
+		          </suiteXmlFiles>
+		        </configuration>
+		      </plugin>
+</plugins>  
+</pluginManagement>
+</build>
+</profile>
+
+
+<!-- Suites 2 for fueladditonal -->
+<profile>
+<id>fueladditonalcases</id>
+<build>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>  
+		<plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-surefire-plugin</artifactId>
+		        <version>3.2.3</version>
+		        <configuration>
+		          <suiteXmlFiles>
+		            <suiteXmlFile>Member-App-Suites/Membercase-regrssion-independent-Fuelsuite-additonalcase.xml</suiteXmlFile>
+		          </suiteXmlFiles>
+		        </configuration>
+		      </plugin>
+</plugins>  
+</pluginManagement>
+</build>
+</profile>
+
+
+<!-- Suites 3 for Customfuelcase -->
+<profile>
+<id>customfuelcase</id>
+<build>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>  
+		<plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-surefire-plugin</artifactId>
+		        <version>3.2.3</version>
+		        <configuration>
+		          <suiteXmlFiles>
+		            <suiteXmlFile>Member-App-Suites/Membercase-regrssion-independent-Fuelsuite-customcase.xml</suiteXmlFile>
+		          </suiteXmlFiles>
+		        </configuration>
+		      </plugin>
+</plugins>  
+</pluginManagement>
+</build>
+</profile>
+
+
+<!-- Suites 4 for recommendedcases -->
+<profile>
+<id>recommendedcases</id>
+<build>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>  
+		<plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-surefire-plugin</artifactId>
+		        <version>3.2.3</version>
+		        <configuration>
+		          <suiteXmlFiles>
+		            <suiteXmlFile>Member-App-Suites/Membercase-regrssion-independent-Fuelsuite-recommendedcase.xml</suiteXmlFile>
+		          </suiteXmlFiles>
+		        </configuration>
+		      </plugin>
+</plugins>  
+</pluginManagement>
+</build>
+</profile>
+
+
+</profiles>
+
+
+
+
+
+  <build>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>  
+        <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.1.0</version>
+        </plugin>
+        <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.3.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.12.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.22.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.0.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>2.5.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.2</version>
+        </plugin>
+        <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
+        <plugin>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>3.7.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>3.0.0</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
